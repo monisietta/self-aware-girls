@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>things self-aware girls do</title>
+  <style>
+    body {
+      background: #FFFFF0;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    h2 {
+      color: rgb(245, 24, 134);
+      margin-top: 30px;
+      text-align: center;
+    }
+
+
+
+    .button-container {
+      display: flex;
+      flex-direction: column; /* Розташування в стовпчик */
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    button {
+      background-color: white;
+      color: hotpink;
+      border: 1px solid hotpink;
+      position: relative;
+      font-size: 20px;
+      height: 60px;
+      width: 100px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: "Segoe UI", sans-serif;
+      transition: background-color 0.18s, box-shadow 0.10s;
+    }
+
+    button:hover {
+      background-color: rgb(255, 184, 196);
+      color: white;
+      box-shadow: 0 0px 20px rgb(255, 184, 196);
+    }
+
+    button:active {
+      opacity: 0.5;
+    }
+
+ #popup {
+position:absolute;
+left: calc(100% + 12px);
+top: 0;
+padding: 8px 12px;
+min-width: 140px;
+ border: 1px solid #ccc;
+ border-radius: 6px;
+ background: #f9f9f9;
+ font-family: sans-serif;
+ display: none;
+ z-index: 1;
+}
+
+  </style>
+
+</head>
+
+<body>
+
+  <h2>things self-aware girls do</h2>
+  <div class="button-container" id="btn-wrapper">
+    <button class="show-text-btn" data-text="at least 8 hours">sleep</button>
+    <button class="show-text-btn" data-text="at least 1L of water">water</button>
+    <button class="show-text-btn" data-text="balansed, nutritious meals - no junk food">food</button>
+    <button class="show-text-btn" data-text="practise self-love first">love</button>
+    <button class="show-text-btn" data-text="do what lights them up">hobby</button>
+    <button class="show-text-btn" data-text="flourish in own way">blooming</button>
+    <button class="show-text-btn" data-text="lerning = self-respect">self-educate</button>
+    <button class="show-text-btn" data-text="clean their mind through journaling">journaling</button>
+    <button class="show-text-btn" data-text="walks bring clarity">walking</button>
+  </div>
+
+  <div id="popup"></div>
+
+
+<script>
+    const wrapper = document.getElementById('btn-wrapper');
+    const popup = document.getElementById('popup');
+
+    wrapper.addEventListener('click', function (e) {
+        const btn = e.target.closest('.show-text-btn');
+        if (!btn) return;
+
+        btn.appendChild(popup);
+        popup.textContent = btn.dataset.text;
+        popup.style.display = 'block';
+    });
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.show-text-btn')) {
+            popup.style.display = 'none'
+        }
+    })
+    </script>
+</body>
+</html>
